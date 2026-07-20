@@ -258,20 +258,20 @@ This project demonstrates how data science can be used in education. In a real-w
 - teachers identify at-risk students earlier
 - schools monitor performance trends
 - educational apps offer personalized support
-- parents better understand academic challenges
+- parents and mentors understand academic risk earlier
 
 ---
 
 ## 14. Interview-Ready Explanation
 
-You can answer interview questions like this:
+You can explain this project in an interview like this:
 
-> I built a student performance prediction system using Python and Streamlit. The project starts by generating synthetic student data, trains a Logistic Regression model, and saves the trained artifacts. I also created a web app that allows users to input student details and receive predictions in real time.
+> I built a student performance prediction system using Python and Streamlit. The project generates synthetic educational data, trains a Logistic Regression model, and saves the trained artifacts for later use. I also created a web app so users can enter student details and receive predictions instantly.
 
 ### Strong points to mention
 
 - end-to-end machine learning workflow
-- feature engineering and data preprocessing
+- data preprocessing and feature engineering
 - model training and evaluation
 - interactive UI with Streamlit
 - practical use in education
@@ -284,7 +284,7 @@ This project can be extended in many ways:
 
 - use a real student dataset
 - try better models like Random Forest or XGBoost
-- add explainability using SHAP
+- add explainability with SHAP
 - deploy the app on Streamlit Cloud
 - add a dashboard for schools or teachers
 - save predictions in a database for analysis
@@ -292,5 +292,26 @@ This project can be extended in many ways:
 ---
 
 ## 16. Summary
+
+StudyPulse is a simple, practical, and interview-friendly project that shows how a machine learning model can be built, trained, and used through a web application. It is ideal for beginners who want to understand the complete workflow of a real AI project.
+- parents better understand academic challenges
+
+---
+
+
+## 14. Possible Improvements
+
+This project can be extended in many ways:
+
+- use a real student dataset
+- try better models like Random Forest or XGBoost
+- add explainability using SHAP
+- deploy the app on Streamlit Cloud
+- add a dashboard for schools or teachers
+- save predictions in a database for analysis
+
+---
+
+## 15. Summary
 
 StudyPulse is a simple, practical, and interview-friendly project that shows how a machine learning model can be built, trained, and used through a web application. It is ideal for beginners who want to understand the complete workflow of a real AI project.
