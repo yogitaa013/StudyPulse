@@ -41,6 +41,13 @@ StudyPulse is an end-to-end mini machine learning application with three main pa
 
 It is designed to be simple enough for beginners while still being useful for understanding a complete machine learning workflow.
 
+### Workflow
+
+1. The user provides student-related inputs through the Streamlit app.
+2. The app prepares the input values and creates a distraction score.
+3. The trained model predicts whether the student is High, Needs Improvement, or At Risk.
+4. The app displays the prediction and a few improvement suggestions.
+
 ---
 
 ## 4. Technologies Used
