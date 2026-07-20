@@ -1,77 +1,165 @@
-# StudyPulse - Student Performance Predictor
+# StudyPulse
 
-StudyPulse is a **Machine Learning web application** that predicts a student’s performance based on daily study habits, sleep, screen time, attendance, previous marks, and assignments completed. The app provides actionable suggestions to help students improve their academic outcomes.
+StudyPulse is a simple end-to-end machine learning project that predicts a student’s academic performance category based on daily study habits, sleep, screen time, attendance, previous marks, and assignments completed. It combines data generation, model training, and a Streamlit web app so the workflow is easy to understand and present in interviews.
 
-**Technologies Used:**
-- Python 3
-- Streamlit for web interface
-- scikit-learn for Machine Learning (Logistic Regression)
-- Pandas & NumPy for data processing
-- Joblib for model serialization
-- Matplotlib for feature visualization
+This project is a strong example of how machine learning can be applied in education to identify students who may need support early.
 
 ---
 
-## Features
+## Project Overview
 
-- Predicts student performance as:
-  - **High** — Excellent performance
-  - **Needs Improvement** — Moderate performance
-  - **At Risk** — Requires immediate improvement
-- Provides suggestions to improve study habits and overall performance.
-- Visualizes **feature importance** for better understanding.
-- User-friendly **interactive web app** using Streamlit.
+StudyPulse predicts one of three classes:
 
----
+- High
+- Needs Improvement
+- At Risk
 
-## Dataset
-
-- The dataset is **synthetically generated** to simulate realistic student behavior.
-- Features include:
-  - `study_hours` — Hours of study per day
-  - `sleep_hours` — Hours of sleep per day
-  - `screen_time` — Hours of screen time per day
-  - `attendance` — Attendance percentage
-  - `previous_marks` — Previous marks percentage
-  - `assignments_completed` — Number of assignments completed
-  - `result` — Target label (`High`, `Needs Improvement`, `At Risk`)
+The app takes student-related input values and returns a prediction along with simple suggestions for improvement.
 
 ---
 
-## Installation
+## Tech Stack
 
-1. Clone the repository:
+- Python
+- Streamlit
+- pandas
+- numpy
+- scikit-learn
+- joblib
+- matplotlib
+
+---
+
+## Project Structure
+
+```text
+StudyPulse/
+├── app.py                  # Streamlit web application
+├── generate_data.py        # Creates synthetic student dataset
+├── train_model.py          # Trains the machine learning model
+├── requirements.txt        # Python dependencies
+├── model.pkl               # Trained model
+├── label_encoder.pkl       # Target label encoder
+├── scaler.pkl              # Feature scaler
+├── feature_importance.png  # Feature importance plot
+└── data/
+    └── student_data.csv    # Generated dataset
+```
+
+---
+
+## How It Works
+
+1. Data generation
+   - The file generate_data.py creates a synthetic dataset of student records.
+   - It generates values such as study hours, sleep hours, screen time, attendance, previous marks, and assignments completed.
+   - A score is calculated and then grouped into High, Needs Improvement, or At Risk.
+
+2. Model training
+   - The file train_model.py loads the dataset.
+   - It creates a new feature called distraction_score.
+   - It scales the features and trains a Logistic Regression model.
+   - It evaluates the model accuracy and saves the trained objects.
+
+3. Web app prediction
+   - The file app.py loads the trained model and provides a simple form in Streamlit.
+   - Users enter student details and click Predict Performance.
+   - The app returns the predicted category, confidence score, and improvement suggestions.
+
+---
+
+## Dataset Description
+
+The dataset file is stored in data/student_data.csv and contains:
+
+- study_hours
+- sleep_hours
+- screen_time
+- attendance
+- previous_marks
+- assignments_completed
+- result
+
+The dataset is synthetic, which makes it ideal for learning and portfolio projects.
+
+---
+
+## Model Explanation
+
+A Logistic Regression model is used because it is:
+
+- easy to understand
+- fast to train
+- suitable for classification problems
+- simple to explain in interviews
+
+The project also uses StandardScaler to normalize feature values and LabelEncoder to convert text labels into numeric values for the model.
+
+---
+
+## How to Run Locally
+
+### 1. Create a virtual environment
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/StudyPulse.git
-cd StudyPulse
-Create a virtual environment:
+python -m venv venv
+venv\Scripts\activate
+```
 
-2.python -m venv venv
-venv\Scripts\activate       # Windows
-source venv/bin/activate    # macOS/Linux
-Install dependencies:
+### 2. Install dependencies
 
+```bash
 pip install -r requirements.txt
-Run Locally
+```
+
+### 3. Generate the dataset
+
+```bash
+python generate_data.py
+```
+
+### 4. Train the model
+
+```bash
+python train_model.py
+```
+
+### 5. Start the app
+
+```bash
 streamlit run app.py
-The app will open in your default browser at http://localhost:8501.
+```
 
-## Deployment
-The app can be deployed on Streamlit Cloud.
+---
 
-Create a Streamlit Cloud account, link your GitHub repository, and click Deploy to get a live URL.
+## Interview-Ready Explanation
 
-## Model
-Model Used: Logistic Regression
+You can describe this project in an interview like this:
 
-Accuracy: ~87%
+> I built a student performance prediction system using Python and Streamlit. The project starts by generating a synthetic dataset, trains a Logistic Regression model, and saves the trained artifacts for later use. I also built a web app so users can enter student details and receive predictions in real time.
 
-Serialized using: Joblib (model.pkl, scaler.pkl, label_encoder.pkl)
+### Strong talking points
 
-## How it Works
-1.User enters daily habits and academic details.
-2.Inputs are scaled using StandardScaler.
-3.Logistic Regression model predicts the performance category.
-4.Suggestions are generated based on model prediction and feature importance.
+- End-to-end machine learning workflow
+- Data preprocessing and feature engineering
+- Model training and evaluation
+- Web app deployment using Streamlit
+- Clear explanation of business use in education
 
+---
+
+## Possible Improvements
+
+Future improvements could include:
+
+- using a real dataset instead of synthetic data
+- trying more advanced models such as Random Forest or XGBoost
+- adding SHAP or explainability features
+- deploying the app on Streamlit Cloud
+- adding a dashboard for teachers and administrators
+
+---
+
+## Summary
+
+StudyPulse is a beginner-friendly but interview-worthy machine learning project that demonstrates data generation, model training, evaluation, and deployment in a simple, practical way.
